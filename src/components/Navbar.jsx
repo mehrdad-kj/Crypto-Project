@@ -29,13 +29,13 @@ const Navbar = () => {
             </div>
             {/* menu icons */}
             <div className='block md:hidden z-10 cursor-pointer' onClick={handleMobileNavbar}>
-                {mobileNavbar ? <AiOutlineClose size={25}/> : <AiOutlineMenu size={25} />}
+                {mobileNavbar ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
             </div>
             {/* mobile menu */}
             <div className={
                 mobileNavbar
-                ? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[85%]  ease-in duration-300 z-10'
-                : 'fixed left-[-100%] top-20 h-[85%] flex flex-col items-center justify-between ase-in duration-300 z-10'
+                    ? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10'
+                    : 'fixed left-[-100%] top-20 h-[90%] flex flex-col items-center justify-between ease-in duration-300'
             }>
                 <ul className='w-full p-4'>
                     <li className='border-b py-6'>
