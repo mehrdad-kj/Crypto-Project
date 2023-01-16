@@ -20,7 +20,7 @@ const CoinPage = () => {
   }, [url]);
 
   return (
-    <div className='rounded-div my-12 py-8'>
+    <article className='rounded-div my-12 py-8'>
       <div className='flex py-8'>
         <img className='w-20 mr-8' src={coin.image?.large} alt='/' />
         <div>
@@ -152,7 +152,7 @@ const CoinPage = () => {
         <p className='text-xl font-bold'>About {coin.name}</p>
         <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(coin.description ? coin.description.en : ''),}} ></p>
       </div>
-    </div>
+    </article>
   );
 };
 

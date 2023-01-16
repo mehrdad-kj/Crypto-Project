@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   return (
-    <div>
+    <section>
       <div className='max-w-[400px] mx-auto min-h-[600px] px-4 py-20'>
         <h1 className='text-2xl font-bold'>Sign Up</h1>
         <form >
@@ -40,7 +40,7 @@ const Signup = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </section>
   )
 }
 

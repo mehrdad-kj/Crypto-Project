@@ -14,7 +14,7 @@ const Trending = () => {
     }, [url])
 
     return (
-        <div className='rounded-div my-12 py-4 text-primary'>
+        <section className='rounded-div my-12 py-4 text-primary'>
             <h1 className='text-2xl font-bold mb-4'>Trending Coins</h1>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {trending.map((coin, idx) => (
@@ -43,7 +43,7 @@ const Trending = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     )
 }
 

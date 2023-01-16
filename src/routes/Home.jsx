@@ -5,10 +5,10 @@ import Trending from '../components/Trending'
 const Home = ({ coins }) => {
 
   return (
-    <div>
+    <section>
       <CoinSearch coins={coins} />
       <Trending />
-    </div>
+    </section>
   )
 }
 

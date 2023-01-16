@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
@@ -11,8 +11,12 @@ const Navbar = () => {
         setMobileNavbar(prev => !prev)
     }
 
+    
     return (
-        <div className='rounded-div flex items-center justify-between h-20 font-bold'>
+        <nav className={
+            mobileNavbar ? 'rounded-div fixed top-0 flex items-center justify-between h-20 font-bold z-10'
+                : 'rounded-div flex items-center justify-between h-20 font-bold'
+        }>
             <Link to='/'>
                 <h1 className='text-2xl'>Cryptobase</h1>
             </Link>
@@ -31,6 +35,7 @@ const Navbar = () => {
             <div className='block md:hidden z-10 cursor-pointer' onClick={handleMobileNavbar}>
                 {mobileNavbar ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
             </div>
+            {console.log(mobileNavbar)}
             {/* mobile menu */}
             <div className={
                 mobileNavbar
@@ -57,7 +62,7 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

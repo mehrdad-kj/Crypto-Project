@@ -3,7 +3,7 @@ import SavedCoin from '../components/SavedCoin';
 
 const Account = () => {
   return (
-    <div className='max-w-[1140px] mx-auto'>
+    <section className='max-w-[1140px] mx-auto'>
         <div className='flex justify-between items-center my-12 py-8 rounded-div'>
           <div>
             <h1 className='text-2xl font-bold'>Account</h1>
@@ -25,7 +25,7 @@ const Account = () => {
             <SavedCoin />
           </div>
         </div>
-      </div>
+      </section>
   )
 }
 

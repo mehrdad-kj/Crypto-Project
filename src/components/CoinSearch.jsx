@@ -7,7 +7,7 @@ const CoinSearch = ({ coins }) => {
   const [searchText, setSearchText] = useState('');
 
   return (
-    <div className='rounded-div my-4'>
+    <section className='rounded-div my-4'>
       <div className='flex flex-col md:flex-row justify-between pt-4 pb-6 text-center md:text-right'>
         <h1 className='font-bold text-2xl my-2'>Search Crypto</h1>
         <form>
@@ -42,7 +42,7 @@ const CoinSearch = ({ coins }) => {
             ))}
         </tbody>
       </table>
-    </div>
+    </section>
   )
 }
 
