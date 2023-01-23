@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { UserAuth } from '../context/AuthContext';
 
 const Navbar = () => {
 
     const [mobileNavbar, setMobileNavbar] = useState(false);
+    const { user, logout } = UserAuth();
+    const navigate = useNavigate();
 
     const handleMobileNavbar = () => {
         setMobileNavbar(prev => !prev)
     }
 
-    
+
+    const handleSignOut = async () => {
+        try {
+            await logout()
+            navigate('/')
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
     return (
         <nav className={
             mobileNavbar ? 'rounded-div fixed top-0 flex items-center justify-between h-20 font-bold z-10'
@@ -23,14 +35,21 @@ const Navbar = () => {
             <div className='hidden md:block'>
                 <ThemeToggle />
             </div>
-            <div className='hidden md:block'>
-                <Link to='signin' className='p-4 hover:text-accent'>
-                    Sign In
-                </Link>
-                <Link to='signup' className='bg-button text-btnText px-5 py-2 ml-2 rounded-2xl hover:shadow-2xl'>
-                    Sign Up
-                </Link>
-            </div>
+            {user?.email ? (
+                <div>
+                    <Link to='/account' className='p-4'>Account</Link>
+                    <button onClick={handleSignOut}>Sign Out</button>
+                </div>
+            ) : (
+                <div className='hidden md:block'>
+                    <Link to='signin' className='p-4 hover:text-accent'>
+                        Sign In
+                    </Link>
+                    <Link to='signup' className='bg-button text-btnText px-5 py-2 ml-2 rounded-2xl hover:shadow-2xl'>
+                        Sign Up
+                    </Link>
+                </div >
+            )}
             {/* menu icons */}
             <div className='block md:hidden z-10 cursor-pointer' onClick={handleMobileNavbar}>
                 {mobileNavbar ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
@@ -43,26 +62,26 @@ const Navbar = () => {
                     : 'fixed left-[-100%] top-20 h-[90%] flex flex-col items-center justify-between ease-in duration-300'
             }>
                 <ul className='w-full p-4'>
-                    <li className='border-b py-6'>
+                    <li onClick={handleMobileNavbar} className='border-b py-6'>
                         <Link to='/'>Home</Link>
                     </li>
-                    <li className='border-b py-6'>
-                        <Link to='/'>Account</Link>
+                    <li onClick={handleMobileNavbar} className='border-b py-6'>
+                        <Link to='/account'>Account</Link>
                     </li>
-                    <li className='py-6'>
+                    <li onClick={handleMobileNavbar} className='py-6'>
                         <ThemeToggle />
                     </li>
                 </ul>
                 <div className='flex flex-col w-full p-4'>
                     <Link to='/signin'>
-                        <button className='w-full my-2 p-3 bg-primary border border-secondary rounded-2xl shadow-xl'>Sign In</button>
+                        <button onClick={handleMobileNavbar} className='w-full my-2 p-3 bg-primary border border-secondary rounded-2xl shadow-xl'>Sign In</button>
                     </Link>
                     <Link to='/signup'>
-                        <button className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl'>Sign Up</button>
+                        <button onClick={handleMobileNavbar} className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl'>Sign Up</button>
                     </Link>
                 </div>
             </div>
-        </nav>
+        </nav >
     )
 }
 
