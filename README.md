@@ -9,5 +9,5 @@ Axios,
 React Router Dom v6,
 React Icons,
 I've used Firebase for handling SignIn and SignUp auths,
-Also I've used git for deploying my project online.
+Also I've used github pages for deploying my project online.
 Any recommendation or bug report is warmly welcome.
