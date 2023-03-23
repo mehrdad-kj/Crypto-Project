@@ -11,3 +11,19 @@ root.render(
     <App />
   </HashRouter>
 );
+
+let a = {
+  aa: 1,
+  bb: 2
+}
+let b = {
+  aa: 1,
+  bb: 2
+};
+
+console.log(a == b);
+
+let z = 1;
+let y = 1;
+
+console.log(z === y)
